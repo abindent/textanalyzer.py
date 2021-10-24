@@ -64,7 +64,7 @@
 <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-bs-toggle="dropdown"> Welcome {{request.user}}</a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-     {% if user.is_superuser django %}
+     {% if user.is_superuser %}
          <a class="dropdown-item" href="/admin">Admin</a>
          <a class="dropdown-item" href="/logout">Logout</a>
          {% else %}
