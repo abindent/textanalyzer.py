@@ -15,9 +15,8 @@ import os.path
 from pathlib import Path
 from posixpath import join
 import dj_database_url
-import mimetypes
 from django.contrib.messages import constants as messages
-
+import mimetypes
 # mimetype access
 mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
