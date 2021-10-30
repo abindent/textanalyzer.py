@@ -29,7 +29,7 @@
             {% csrf_token %}
             <div class="form-group">
                 <label for="comment">Post Comment </label>
-                <input type="text" id="comment" class="form-control" name="comment" placeholder="Enter comment here">
+                <input type="text" id="comment" class="form-control" name="comment" required placeholder="Enter comment here">
             </div>
             <input type="hidden" name="postSno" value="{{post.sno}}">
             <input type="hidden" name="parentSno" value="{{post.parentsno}}">
@@ -42,7 +42,7 @@
         {% for comment in comments %}
         <div class="row my-3">
             <div class="col-md-1">
-                <img class="rounded mx-auto float-start d-block w-100 p-2" src="/static/images/user.png" alt="user">
+                <img class="rounded mx-auto float-start d-block p-2" style="width: 38px;" src="/static/images/user.png" alt="user">
             </div>
             <div class="col-md-11 ">
                 <b> {{comment.user.username}} </b> <span class="badge bg-secondary ">{{comment.timestamp | naturaltime}}</span>
@@ -59,7 +59,7 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="comment">Post a reply </label>
-                                <input type="text" class="form-control" name="comment" placeholder="Enter comment here">
+                                <input type="text" class="form-control" name="comment" required placeholder="Enter comment here">
                                 <input type="hidden" name="parentSno" value="{{comment.sno}}">
                             </div>
                             <input type="hidden" name="postSno" value="{{post.sno}}">
@@ -77,7 +77,7 @@
                         {% for reply in replyDict|get_val:comment.sno %}
                         <div class="row my-2">
                             <div class="col-md-1 ">
-                                <img class="rounded mx-auto float-start d-block w-100 my-2 p-2 border border-dark" src="/static/images/user.png" alt="user">
+                                <img class="rounded mx-auto float-start d-block  my-2 p-2 border border-dark" style="width: 38px;" src="/static/images/user.png" alt="user">
                             </div>
                             <div class="col-md-11">
                                 <div class="col-md-11 ">

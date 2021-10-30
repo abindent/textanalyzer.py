@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <!-- FONTAWESOME -->
+  <script src="https://kit.fontawesome.com/580eec0a32.js" crossorigin="anonymous"></script>
+
+  <!-- DARK MODE CSS -->
+  <link rel="stylesheet" href="/static/css/dark-mode.css">
+
+  <link rel="icon" href="/static/favicon/favicon.png" type="image/png">
+
+
+  <title>Profile {{request.user}} | Text Analyzer</title>
+</head>
+<style>
+  .myfont {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+</style>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/"><i class="fas fa-diagnoses"></i> Text Analyzer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/"><strong>Home</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link "  href="/about"><strong>About Us</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/blog"><strong>Blog</strong></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <strong>Tools</strong>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/analyzer">Analyzer</a></li>
+              <li><a class="dropdown-item" href="/editor">Text Editor</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="/styler">Styler</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact"><strong>Contact Us</strong></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <form action="/search" method="get" class="d-flex">
+      <input id="query" name="query" class="form-control me-2 mx-2" type="search" placeholder="Search"
+        aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    {% if user.is_authenticated %}
+    <ul class="navbar-nav mr-2">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+          {% if user.profile.profile_pic %} <img _ngcontent-serverapp-c51="" style="margin: 0 13px;" height="39px" width="39px" src="{{user.profile.profile_pic.url}}" alt="" class="brandLogo">{% endif %}  Welcome {{request.user}}</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {% if user.is_superuser %}
+          <a class="dropdown-item active" aria-current="page" href="/admin">Admin</a>
+          <a class="dropdown-item" href="/logout">Logout</a>
+          {% else %}
+          <a class="dropdown-item active" aria-current="page" href="/profile">Profile</a>
+          <a class="dropdown-item" href="/logout">Logout</a>
+          {% endif %}
+        </div>
+      </li>
+    </ul>
+    </div>
+    {% endif %}
+    <form class="form-inline mx-2">
+      <div class="nav-item custom-control custom-switch mr-sm-2">
+        <div class="form-check form-switch">
+          <input onclick="darkModetoggle()" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+        </div>
+      </div>
+    </form>
+  </nav>
+  <!-- ALERT -->
+  {% for message in messages  %}            
+  <br><div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message : </strong> {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
+      </div><br><br>
+  {% endfor %} 
+    <!-- PROFILE -->
+    <center>
+        <h2><u>UPDATE PROFILE</u></h2>
+    </center>
+
+    <div class="container-fluid form-group">
+        <form method="post" enctype="multipart/form-data" action="/change_photo">
+            {% csrf_token %}
+           {{ form.as_p }}
+            <button type="submit" class="btn btn-dark mt-3" >Update</button>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer" class="container mobile-hide">
+        <footer class="row row-cols-5 py-5 my-5 border-top">
+            <div class="col">
+                <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                    <img width="33%" src="/static/favicon/favicon.png" alt="footer" />
+                </a>
+                <p class="text-muted">© 2021</p>
+            </div>
+
+            <div class="col">
+
+            </div>
+
+            <div class="col">
+                <h5>Our Site Pages</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Home</a></li>
+                    <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-muted">About Us</a></li>
+                    <li class="nav-item mb-2"><a href="/blog" class="nav-link p-0 text-muted">Blog</a></li>
+                    <li class="nav-item mb-2"><a href="/analyzer" class="nav-link p-0 text-muted">Text Analyzer</a></li>
+                    <li class="nav-item mb-2"><a href="/editor" class="nav-link p-0 text-muted">Text Editor</a></li>
+                    <li class="nav-item mb-2"><a href="/styler" class="nav-link p-0 text-muted">Text Styler</a></li>
+                    <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h5>Social</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="https://in.pinterest.com/maitrababai2007"
+                            class="nav-link p-0 text-muted"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+                    <li class="nav-item mb-2"><a href="https://www.linkedin.com/in/sinchan-maitra-22a303217/"
+                            class="nav-link p-0 text-muted"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li class="nav-item mb-2"><a href="https://github.com/abindent" class="nav-link p-0 text-muted"><i
+                                class="fab fa-github-alt"></i> Github</a></li>
+                    <li class="nav-item mb-2"><a href="https://reddit.com/r/Abindent" class="nav-link p-0 text-muted"><i
+                                class="fab fa-reddit-alien"></i> Subreddit</a></li>
+                    <li class="nav-item mb-2"><a href="https://twitch.tv/smduniya187357"
+                            class="nav-link p-0 text-muted"><i class="fab fa-twitch"></i> Twitch</a></li>
+                    <li class="nav-item mb-2"><a href="https://discord.io/AbindentCommunity"
+                            class="nav-link p-0 text-muted"><i class="fab fa-discord"></i> Discord Server</a></li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h5>Other Sites & Projects</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="https://osourcegames.firebaseapp.com"
+                            class="nav-link p-0 text-muted">OpenSource Games</a></li>
+                    <li class="nav-item mb-2"><a href="https://otsersto.infinityfreeapp.com"
+                            class="nav-link p-0 text-muted">OpenSource Blogs</a></li>
+                    <li class="nav-item mb-2"><a href="https://ecodefun.firebaseapp.com"
+                            class="nav-link p-0 text-muted">EcodeFun</a></li>
+                    <li class="nav-item mb-2"><a href="https://ecodepen.firebaseapp.com"
+                            class="nav-link p-0 text-muted">EcodePen</a></li>
+                    <li class="nav-item mb-2"><a href="https://ecodefun.firebaseapp.com/codepad.html"
+                            class="nav-link p-0 text-muted">EcodePad</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- MOBILE FOOTER -->
+    <div class="container mobile-show">
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <p class="col-md-4 mb-0 text-muted">© 2021 Text Analyzer</p>
+
+                <a href="/"
+                    class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="/static/favicon/favicon.png" width="33%" alt="footer" />
+                </a>
+
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About</a></li>
+                    <li class="nav-item"><a href="/blog" class="nav-link px-2 text-muted">Blog</a></li>
+                    <li class="nav-item"><a href="/analyzer" class="nav-link px-2 text-muted">Analyzer</a></li>
+                    <li class="nav-item"><a href="/contact" class="nav-link px-2 text-muted">contact</a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+    <!-- Optional Script -->
+    <script src="/static/js/dark-mode-switch.js"></script>
+    <!-- JQUEY FILES -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+        integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

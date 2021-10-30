@@ -9,6 +9,8 @@ whitenoise = "*"
 gunicorn = "*"
 dj-database-url = "*"
 psycopg2 = "*"
+pillow = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 

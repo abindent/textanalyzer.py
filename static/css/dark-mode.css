@@ -7,7 +7,10 @@
 .mobile-show {
   display: none
 }
-
+.brandLogo{
+  background: transparent;
+  border-radius: 150px;
+}
 @media only screen and (max-width: 496px) {
   .mobile-hide {
     display: none

@@ -62,7 +62,7 @@
       {% if user.is_authenticated %}
 <ul class="navbar-nav mr-2">
 <li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-bs-toggle="dropdown"> Welcome {{request.user}}</a>
+<a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-bs-toggle="dropdown"> {% if user.profile.profile_pic %} <img _ngcontent-serverapp-c51="" style="margin: 0 13px;" height="39px" width="39px" src="{{user.profile.profile_pic.url}}" alt="" class="brandLogo">{% endif %} Welcome {{request.user}}</a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
      {% if user.is_superuser %}
          <a class="dropdown-item" href="/admin">Admin</a>
@@ -236,27 +236,27 @@
         <form action= "/signup" method='post'>
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" name="username" placeholder="Choose a unique username">
+    <input type="text" class="form-control" id="username" name="username" placeholder="Choose a unique username" required>
   </div>
   <div class="form-group">
     <label for="fname">First Name</label>
-    <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name">
+    <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name" >
   </div>
   <div class="form-group">
     <label for="lname">Last Name</label>
-    <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name">
+    <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name" >
   </div>
   <div class="form-group">
     <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
   </div>
   <div class="form-group">
     <label for="pass1">Choose a password</label>
-    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Choose Your Password">
+    <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Choose Your Password" required>
   </div>
   <div class="form-group">
     <label for="pass2">Confirm Password</label>
-    <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Enter your password again">
+    <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Enter your password again" required>
     <br>
      <div class="form-check">
                   <input type="checkbox" class="form-check-input" onclick="password_show_hide_register()" /> Show Password
@@ -286,14 +286,16 @@
         <form action="/login" method="POST">
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Enter your username "required>
+    <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Enter your username" value="{{cookieusername}}" required>
   </div>
   <div class="form-group">
     <label for="pass">Enter your password </label>
-    <input type="password" class="form-control" id="loginpass" name="loginpass" placeholder="Enter your password " required>
+    <input type="password" class="form-control" id="loginpass" name="loginpass" placeholder="Enter your password " value="{{cookiepass}}" required>
     <div class="form-check">
               <input type="checkbox" class="form-check-input" onclick="password_show_hide()"/> Show Password
+              <br>        
   </div> 
+  <a href="/password_reset/">Forgot Password</a> | <input class="form-check-input"  name="remember_me" type="checkbox" /> Remember Me
           </div>
         {% csrf_token %}
         <button type="submit" class="btn btn-primary mt-3">Submit</button>

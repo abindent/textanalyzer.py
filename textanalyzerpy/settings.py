@@ -13,18 +13,19 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import os.path
 from pathlib import Path
+from posixpath import join
 import dj_database_url
 import mimetypes
 from django.contrib.messages import constants as messages
 
-#mimetype access
+# mimetype access
 mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Message Error Tag
 MESSAGE_TAGS = {
-    messages.ERROR:'danger'
+    messages.ERROR: 'danger'
 }
 
 
@@ -35,9 +36,9 @@ MESSAGE_TAGS = {
 SECRET_KEY = 'django-insecure-111fqv@s7c@h#sml70+63a4jw7sbpv&u_^+a%-0q4e5&vayn@='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*' ,'textanalyzerpy.herokuapp.com']
+ALLOWED_HOSTS = ['*', 'textanalyzerpy.herokuapp.com']
 
 
 # Application definition
@@ -50,6 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'crispy_forms',
+    'members',
     'blog.apps.BlogConfig',
 ]
 
@@ -61,7 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',       
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
 
@@ -85,6 +88,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'textanalyzerpy.wsgi.application'
 
+# SMTP CONFIGURATION
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
@@ -93,10 +97,9 @@ EMAIL_HOST_USER = 'owner.jzsculture.smaitra@gmail.com'
 DEFAULT_FROM_EMAIL = 'owner.jzsculture.smaitra@gmail.com'
 SERVER_EMAIL = 'owner.jzsculture.smaitra@gmail.com'
 EMAIL_HOST_PASSWORD = 'M1876fsu'
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-
 
 
 DATABASES = {
@@ -127,6 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -144,25 +148,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_ROOT = 'static'
+STATIC_ROOT = '/static'
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    os.path.join('/static'),
+    os.path.join('static'),
 ]
 
-
-
+# MEDIA
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-
-
-

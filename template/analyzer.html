@@ -65,7 +65,7 @@
   {% if user.is_authenticated %}
 <ul class="navbar-nav mr-2">
 <li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-bs-toggle="dropdown"> Welcome {{request.user}}</a>
+<a class="nav-link dropdown-toggle" href='#' id="navbarDropdown" role="button" data-bs-toggle="dropdown"> {% if user.profile.profile_pic %} <img _ngcontent-serverapp-c51="" style="margin: 0 13px;" height="39px" width="39px" src="{{user.profile.profile_pic.url}}" alt="" class="brandLogo">{% endif %} Welcome {{request.user}}</a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     {% if user.is_superuser  %}
          <a class="dropdown-item" href="/admin">Admin</a>
@@ -130,7 +130,7 @@
           <hr />
           <h6><u>Special Actions:</u> <span class="badge rounded-pill bg-success">Special</span></h6>
             <div class="form-check form-switch">
-            <input type="checkbox"  name="charcount" class="form-check-input" id="customSwitch5">
+            <input type="checkbox" onclick="disableall()" name="charcount" class="form-check-input" id="customSwitch5">
             <label class="form-check-label" for="customSwitch5">Count Charcaters</label>
           </div>
 
