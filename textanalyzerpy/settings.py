@@ -17,6 +17,8 @@ from posixpath import join
 import dj_database_url
 from django.contrib.messages import constants as messages
 import mimetypes
+from decouple import config
+
 # mimetype access
 mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,10 +34,10 @@ MESSAGE_TAGS = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-111fqv@s7c@h#sml70+63a4jw7sbpv&u_^+a%-0q4e5&vayn@='
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*', 'textanalyzerpy.herokuapp.com']
 
@@ -92,10 +94,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'owner.jzsculture.smaitra@gmail.com'
-DEFAULT_FROM_EMAIL = 'owner.jzsculture.smaitra@gmail.com'
-SERVER_EMAIL = 'owner.jzsculture.smaitra@gmail.com'
-EMAIL_HOST_PASSWORD = 'M1876fsu'
+EMAIL_HOST_USER = config('EMAIL_ADDRESS')
+DEFAULT_FROM_EMAIL = config('EMAIL_ADDRESS')
+SERVER_EMAIL = config('EMAIL_ADDRESS')
+EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD')
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -147,17 +150,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_ROOT = '/static'
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = [
-    os.path.join('static'),
-]
+STATIC_URL = '/static/' 
 
 # MEDIA
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# NEW CONFIG 
+if DEBUG:
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+  MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+else:
+  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+  MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type

@@ -11,6 +11,8 @@ dj-database-url = "*"
 psycopg2 = "*"
 pillow = "*"
 django-crispy-forms = "*"
+python-dotenv = "*"
+python-decouple = "*"
 
 [dev-packages]
 

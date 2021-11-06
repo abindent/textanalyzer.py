@@ -26,9 +26,6 @@ import random
 
 
 def index(request):
-    if request.COOKIES.get("username"):
-     return render(request, 'index.html',  {"cookieusername": request.COOKIES['username'], "cookiepass": request.COOKIES['password']})
-    else:
      return render(request, 'index.html')
 
 
@@ -183,8 +180,7 @@ def submit(request):
     content = greetings + otherinfo + yourquery
     # responsecopy = name + "'s response:" + br + content
     if request.method == 'POST' and email and name:
-        email_content = render_to_string(
-            "email_template.html", {'title': subject, 'content': content})
+        email_content = render_to_string("email_template.html", {'title': subject, 'content': content})
         content = email_content
         email = EmailMultiAlternatives(
             subject,
@@ -264,10 +260,6 @@ def handeLogin(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Successfully Logged In")
-            if request.POST.get("remember_me"):
-                response = HttpResponse("Remember me Cookie")
-                response.set_cookie('username', request.POST['loginusername'])   
-                response.set_cookie('password', request.POST['loginpass']) 
             return redirect("/")
          
         else:
@@ -303,7 +295,9 @@ def change_photo(request):
          messages.error(request, "Failed")
          return redirect('profile/v2')
 
- return redirect('profile/v2')        
+ return redirect('profile/v2')  
+
+@login_required(login_url="/")      
 def profilev2(request):
     context = {"form": UserProfileForm}
     return render(request, 'profile/pic.html', context)
@@ -328,3 +322,24 @@ def password_success(request):
     messages.success(
         request, " Your Text Analyzer account password has been successfully changed")
     return redirect("/")
+
+def delete_account(request):
+    if request.method == "POST":
+        if request.user.is_superuser:
+         messages.error(request, "YOU CANNOT DO THIS")
+         return redirect("/")
+
+        if request.user.is_staff:
+         messages.error(request, "YOU CANNOT DO THIS")
+         return redirect("/")
+
+        else: 
+          username = request.user.username
+          del_user = User.objects.filter(username=username) 
+          logout(request)
+          del_user.delete()  
+          messages.success(request, "Account Successfully Deleted")
+          return redirect("/")
+
+        
+    return redirect("/profile")

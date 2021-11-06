@@ -28,6 +28,7 @@
 </style>
 
 <body>
+    
   <!-- NAVBAR -->
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -169,6 +170,33 @@
       <button class="btn btn-secondary">Update</button>
     </form>
   </div>
+<br>
+
+
+  <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#del_modal"><i class="fas fa-trash-alt"></i> DELETE ACCOUNT</button>
+<!-- Modal -->
+<div class="modal fade" id="del_modal" tabindex="-1" aria-labelledby="del_modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-title text-center" style="margin: 8px 17px;">
+        <i class="fas fa-exclamation" style="width: 23px;align-items: center;color: orange;border: 8px solid orange;padding: 38px 56px 28px 46px; border-radius: 50%; font-size: 32px;"  ></i>
+                 <!-- src="/static/images/exclamation-solid.svg" -->
+      </div>
+      <div class="modal-header">
+              <h3 class="modal-title text-center" id="exampleModalLabel"><strong style="color: rgb(204, 35, 35);">You are about to delete your account</strong></h3>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 22px; color: rgb(204, 194, 194);" class="text-center">Are You Sure?</p>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">&#10060; Cancel</button>
+        <form action="/delete_account" method="post" >{% csrf_token %}
+        <button type="submit" class="btn btn-primary"><i class="fas fa-trash-alt"></i> Delete Account</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!-- FOOTER -->
   <div id="footer" class="container mobile-hide">
@@ -255,6 +283,9 @@
   </div>
   <!-- Optional Script -->
   <script src="/static/js/dark-mode-switch.js"></script>
+
+
+
   <!-- JQUEY FILES -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
