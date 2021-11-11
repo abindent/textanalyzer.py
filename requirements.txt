@@ -1,4 +1,4 @@
-aiohttp==3.7.4.post0
+aiohttp>=3.7.4
 altgraph==0.17.2
 asgiref==3.4.1
 async-timeout==3.0.1
@@ -34,6 +34,7 @@ DiscordUtils==1.3.4
 distlib==0.3.2
 dj-database-url==0.5.0
 Django==3.2.6
+django-jazzmin==2.4.8
 django-heroku==0.3.1
 django-tinymce==3.3.0
 Eel==0.14.0
@@ -73,7 +74,7 @@ opencv-python==4.5.3.56
 packaging==21.0
 pathy==0.6.0
 pefile==2021.9.3
-Pillow==8.2.0
+pillow>=8.3.2
 pipenv==2021.5.29
 platformdirs==2.3.0
 pluggy==1.0.0
@@ -116,7 +117,7 @@ sniffio==1.2.0
 soupsieve==2.2.1
 spacy-legacy==3.0.6
 SpeechRecognition==3.8.1
-sqlparse==0.4.1
+sqlparse>=0.4.2
 srsly==2.4.1
 sympy==1.8
 termcolor==1.1.0

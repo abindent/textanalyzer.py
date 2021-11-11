@@ -45,6 +45,7 @@ ALLOWED_HOSTS = ['*', 'textanalyzerpy.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,6 +111,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# UPDATE DATABASE
 db_from_env = dj_database_url.config(conn_max_age=None, ssl_require=True)
 DATABASES['default'].update(db_from_env)
 
