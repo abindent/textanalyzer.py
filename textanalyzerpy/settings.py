@@ -70,7 +70,12 @@ JAZZMIN_SETTINGS = {
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"}, 
         
-    ],
+    ],    
+   # The model admin to search from the search bar, search bar omitted if excluded
+    "search_model": "auth.User",
+
+    
+  
   # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
         {"name": "View Site" , "url":"https://textanalyzerpy.herokuapp.com", "new_window": True},
