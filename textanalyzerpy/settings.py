@@ -91,6 +91,8 @@ JAZZMIN_SETTINGS = {
 
 }
 
+JAZZMIN_SETTINGS["show_ui_builder"] = True
+
 # Application definition
 
 INSTALLED_APPS = [
