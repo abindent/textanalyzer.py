@@ -98,6 +98,94 @@ JAZZMIN_SETTINGS = {
 
 JAZZMIN_SETTINGS["show_ui_builder"] = True
 
+Changed Content.
+Copyright © 2021 Text Analyzer Ltd. All rights reserved.
+Customize
+Theme: 
+default
+Dark Theme: 
+darkly
+Small Text
+
+Body
+NavBar
+SideBar
+Footer
+Brand
+SideBar Tweaks
+
+Flat style
+Legacy style
+Compact
+Child indent
+Disable auto-expand
+Fixed SideBar
+Misc
+
+Boxed Layout
+Fixed Footer
+Sticky Actions
+(Change form)
+Navbar Tweaks
+
+No navbar border
+Fixed NavBar
+Button tweaks
+
+primary: 
+Solid
+ secondary: 
+Solid
+ info: 
+Outline
+ warning: 
+Outline
+ danger: 
+Outline
+ success: 
+Outline
+Navbar Variants
+Accent Color Variants
+Dark Sidebar Variants
+Light Sidebar Variants
+Brand Logo Variants
+clear
+UI Configuration
+×
+Copy this info your settings file to persist these UI changes
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": False,
+    "accent": "accent-primary",
+    "navbar": "navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "default",
+    "dark_mode_theme": "darkly",
+    "button_classes": {
+        "primary": "btn-primary",
+        "secondary": "btn-secondary",
+        "info": "btn-outline-info",
+        "warning": "btn-outline-warning",
+        "danger": "btn-outline-danger",
+        "success": "btn-outline-success"
+    }
+}
+
 # Application definition
 
 INSTALLED_APPS = [
