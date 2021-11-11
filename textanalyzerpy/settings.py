@@ -68,14 +68,28 @@ JAZZMIN_SETTINGS = {
         {"name": "Support", "url": "https://textanalyzerpy.herokuapp.com/contact/", "new_window": True},
 
         # model admin to link to (Permissions checked against model)
-        {"model": "auth.User"},
-
-       
+        {"model": "auth.User"}, 
         
     ],
+  # Additional links to include in the user menu on the top right ("app" url type is not allowed)
+    "usermenu_links": [
+        {"name": "View Site" , "url":"https://textanalyzerpy.herokuapp.com", "new_window": True},
+        {"model": "auth.user"}
+    ],
+
+
+    #############
+    # Side Menu #
+    #############
+
+   # Whether to display the side menu
+    "show_sidebar": True,
+
+   # Whether to aut expand the menu
+    "navigation_expanded": True,
+
+
 }
-
-
 
 # Application definition
 
