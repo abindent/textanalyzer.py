@@ -72,7 +72,7 @@ JAZZMIN_SETTINGS = {
         
     ],    
    # The model admin to search from the search bar, search bar omitted if excluded
-    "search_model": "auth.User",
+    "search_model": "blog.Posts",
 
     
   
