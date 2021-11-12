@@ -100,63 +100,6 @@ JAZZMIN_SETTINGS["show_ui_builder"] = True
 
 
 JAZZMIN_UI_TWEAKS = {
-    Changed Content.
-Copyright © 2021 Text Analyzer Ltd. All rights reserved.
-Customize
-Theme: 
-default
-Dark Theme: 
-darkly
-Small Text
-
-Body
-NavBar
-SideBar
-Footer
-Brand
-SideBar Tweaks
-
-Flat style
-Legacy style
-Compact
-Child indent
-Disable auto-expand
-Fixed SideBar
-Misc
-
-Boxed Layout
-Fixed Footer
-Sticky Actions
-(Change form)
-Navbar Tweaks
-
-No navbar border
-Fixed NavBar
-Button tweaks
-
-primary: 
-Solid
- secondary: 
-Solid
- info: 
-Outline
- warning: 
-Outline
- danger: 
-Outline
- success: 
-Outline
-Navbar Variants
-Accent Color Variants
-Dark Sidebar Variants
-Light Sidebar Variants
-Brand Logo Variants
-clear
-UI Configuration
-×
-Copy this info your settings file to persist these UI changes
-
-JAZZMIN_UI_TWEAKS = {
     "navbar_small_text": False,
     "footer_small_text": False,
     "body_small_text": False,
