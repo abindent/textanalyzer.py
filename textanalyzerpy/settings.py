@@ -109,7 +109,7 @@ JAZZMIN_SETTINGS["show_ui_builder"] = True
 
 
 JAZZMIN_UI_TWEAKS = {
-    "navbar_small_text": False,
+     "navbar_small_text": False,
     "footer_small_text": False,
     "body_small_text": False,
     "brand_small_text": True,
@@ -128,7 +128,7 @@ JAZZMIN_UI_TWEAKS = {
     "sidebar_nav_compact_style": False,
     "sidebar_nav_legacy_style": False,
     "sidebar_nav_flat_style": False,
-    "theme": "default",
+    "theme": "cyborg",
     "dark_mode_theme": "darkly",
     "button_classes": {
         "primary": "btn-primary",
