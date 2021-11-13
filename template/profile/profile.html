@@ -143,16 +143,16 @@
        <img src="{{ user.profile.profile_pic.url }}" width="139px" height="139px" style="border-radius: 100px; background: transparent;" class="position-absolute top-100 start-50 translate-middle" alt="pic">
       </div><br><br><br>
     <div class="text-center"> 
-      <a href="/profile/v2" class="btn btn-secondary mt-3">Update</a> 
+      <a href="/profile/v2" class="btn btn-secondary mt-3"><i class="fa-solid fa-circle-plus fa-beat"></i>Update</a> 
     </div>
     {% else %}
       <img src="/media/default-avatar.png"  class="position-absolute top-100 start-50 translate-middle" alt="pic">
       </div><br><br><br>
       <div class="text-center">
         {% if user.profile %}
-        <a href="/profile/v2" class="btn btn-dark mt-3">Update</a>
+        <a href="/profile/v2" class="btn btn-dark mt-3"><i class="fa-solid fa-circle-plus fa-beat"></i> Update</a>
         {% else %}
-        <a href="/profile/v2" class="btn btn-dark mt-3">Add</a>
+        <a href="/profile/v2" class="btn btn-dark mt-3"><i class="fa-solid fa-circle-plus fa-beat"></i> Add</a>
         {% endif %}
       </div>
       {% endif %}
