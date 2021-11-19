@@ -177,9 +177,9 @@ def submit(request):
             messages.success(request, "Your message has been successfully sent")
             return redirect("/contact")
      
-        else:
-            messages.error(request, "Please log in before posting your query.")
-            return redirect("/contact")
+  else:
+        messages.error(request, "Please log in before posting your query.")
+        return redirect("/contact")
  
 def search(request):
     query = request.GET['query']
