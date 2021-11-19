@@ -37,7 +37,7 @@ SECRET_KEY = "django-insecure-111fqv@s7c@h#sml70+63a4jw7sbpv&u_^+a%-0q4e5&vayn@=
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # False or True
-DEBUG = False  
+DEBUG = True  
 
 ALLOWED_HOSTS = ['*', 'textanalyzerpy.herokuapp.com']
 
