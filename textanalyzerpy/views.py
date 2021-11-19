@@ -172,14 +172,15 @@ def submit(request):
             messages.error(request, "Please fill the form correctly")
             return redirect("/contact")
         if request.user.is_authenticated:
-            messages.error(request, "You have to be logged in to your account. Otherwise we can't track your request.")
-            return redirect("/contact")
-        else:
             contact= Contact(user=request.user,name=name, email=email, phone=phone, content=content)
             contact.save()
             messages.success(request, "Your message has been successfully sent")
             return redirect("/contact")
-
+     
+        else:
+            messages.error(request, "Please log in before posting your query.")
+            return redirect("/contact")
+ 
 def search(request):
     query = request.GET['query']
     if len(query) > 78:
