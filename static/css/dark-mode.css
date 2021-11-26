@@ -1,7 +1,5 @@
 /* based on https://unpkg.com/bootstrap-darkmode@0.7.0/dist/darktheme.css */
-html{
--webkit-tap-highlight-color:rgba(0,0,0,0)!important
-}
+
 .mobile-hide {
   display: block
 }
