@@ -110,7 +110,7 @@ JAZZMIN_SETTINGS["show_ui_builder"] = True
 
 
 JAZZMIN_UI_TWEAKS = {
-     "navbar_small_text": False,
+    "navbar_small_text": False,
     "footer_small_text": False,
     "body_small_text": False,
     "brand_small_text": True,
@@ -153,6 +153,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'github_storages',
     'crispy_forms',
     'members',
     'blog.apps.BlogConfig',
@@ -201,6 +202,12 @@ DEFAULT_FROM_EMAIL = "owner.jzsculture.smaitra@gmail.com"
 SERVER_EMAIL = "owner.jzsculture.smaitra@gmail.com"
 EMAIL_HOST_PASSWORD = "vteycrywdcxsuavi"
 
+# MEDIA FILES STORAGE
+DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
+GITHUB_HANDLE = "abindent"
+ACCESS_TOKEN = "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"
+GITHUB_REPO_NAME = "media-files"
+MEDIA_BUCKET_NAME = "pics"
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
