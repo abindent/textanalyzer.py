@@ -205,7 +205,7 @@ EMAIL_HOST_PASSWORD = "vteycrywdcxsuavi"
 # MEDIA FILES STORAGE
 DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
 GITHUB_HANDLE = "abindent"
-ACCESS_TOKEN = "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"
+ACCESS_TOKEN = "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"
 GITHUB_REPO_NAME = "media-files"
 MEDIA_BUCKET_NAME = "pics"
 
