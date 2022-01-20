@@ -200,7 +200,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "owner.jzsculture.smaitra@gmail.com"
 DEFAULT_FROM_EMAIL = "owner.jzsculture.smaitra@gmail.com"
 SERVER_EMAIL = "owner.jzsculture.smaitra@gmail.com"
-EMAIL_HOST_PASSWORD = "kxlulilkrdkkjgdt"
+EMAIL_HOST_PASSWORD = "nrfysyvzlenyxswc"
 
 # MEDIA FILES STORAGE
 DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
