@@ -32,7 +32,7 @@
                 <input type="text" id="comment" class="form-control" name="comment" required placeholder="Enter comment here">
             </div>
             <input type="hidden" name="postSno" value="{{post.sno}}">
-            <input type="hidden" name="parentSno" value="{{post.parentsno}}">
+            <input type="hidden" name="parentSno" value="{{comment.sno}}">
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
         {% else %}
