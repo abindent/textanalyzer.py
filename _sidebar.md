@@ -1,7 +1,7 @@
 <!-- docs/_sidebar.md -->
 
 
-* [HOME](./)
+* [Home](./)
 
 * [About](./about/index)
 
