@@ -14,9 +14,13 @@ import os
 import os.path
 from pathlib import Path
 from posixpath import join
+from dotenv import load_dotenv
 import dj_database_url
 from django.contrib.messages import constants as messages
 import mimetypes
+
+# Loading envs
+load_dotenv()
 
 # mimetype access
 mimetypes.add_type("text/css", ".css", True)
@@ -197,15 +201,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "owner.jzsculture.smaitra@gmail.com"
-DEFAULT_FROM_EMAIL = "owner.jzsculture.smaitra@gmail.com"
-SERVER_EMAIL = "owner.jzsculture.smaitra@gmail.com"
-EMAIL_HOST_PASSWORD = "nrfysyvzlenyxswc"
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST")
+DEFAULT_FROM_EMAIL = os.getenv("EMAIL_HOST")
+SERVER_EMAIL = os.getenv("EMAIL_HOST")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASSWORD")
 
 # MEDIA FILES STORAGE
 DEFAULT_FILE_STORAGE = "github_storages.backend.BackendStorages"
 GITHUB_HANDLE = "abindent"
-ACCESS_TOKEN = "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"
+ACCESS_TOKEN = os.getenv("GITHUB_ACCESS_TOKEN")
 GITHUB_REPO_NAME = "media-files"
 MEDIA_BUCKET_NAME = "pics"
 
