@@ -9,7 +9,7 @@ autopep8==1.5.7
 backports.entry-points-selectable==1.1.0
 beautifulsoup4==4.9.3
 blis==0.7.4
-bottle==0.12.19
+bottle==0.12.20
 bottle-websocket==0.2.9
 catalogue==2.0.4
 certifi==2021.5.30
