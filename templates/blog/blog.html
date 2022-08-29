@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load extras %}
+{% load shrink_num %}
+{% block metadescription %}{{post.gist}}{% endblock metadescription %}
+{% block headerScript %}
+<script src="https://cdn.tailwindcss.com"></script>
+{% endblock headerScript %}
+
+{% block title %}{{post.title}} | TextAnalyzer{% endblock title %}
+
+
+{% block body %}
+ 
+<!-- BLOG DETAILS -->
+<div class="bg-white dark:bg-gray-900">
+    <div class="blog-post">
+     <h2 class="blog-post-title text-3xl font-bold text-black dark:text-white  text-center uppercase py-3" ><u>{{post.title}}</u></h2>
+     <section class="text-gray-700 body-font overflow-hidden bg-white dark:bg-gray-900">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <img alt="{{post.title}}" class="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" src="{% if post.thumbnail %}{{post.thumbnail.url}} {% else %}{% static 'images/blog/default.jpg' %}{% endif %}">
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+              <h2 class="uppercase text-3xl title-font text-gray-500 tracking-widest">{{post.title}}</h2>
+             
+              <p class="leading-relaxed">By {{post.author}}.</p>
+              <p class="py-5 pb-2 text-2xl text-black dark:text-white font-bold">Details:</p>
+              <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                <div class="flex ml-6 items-center"> 
+                  <div class="relative">
+                    <p class="leading-relaxed"><p class="font-bold text-black dark:text-white"><i class="fas fa-calendar"></i> Time Posted:</p>&nbsp;{{post.timeStamp}}</p>
+                    <p class="leading-relaxed"><p class="font-bold text-black dark:text-white"><i class="fas fa-eye"></i> Views:</p>&nbsp;{{post.views|shrink_num}}.</p>
+                    {% if request.user.is_authenticated %}
+                    <p class="leading-relaxed"><p class="font-bold text-black dark:text-white"><i class="fas fa-comments"></i> Comments:</p>&nbsp;Please follow this page for the comment button.</p>
+                    {% else %}
+                    <p class="leading-relaxed"><p class="font-bold text-black dark:text-white"><i class="fas fa-comments"></i> Comments:</p>&nbsp;Please login to comment or reply.</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div>
+    </div>
+    <!-- BLOG CONTENT -->
+    <div class="mb-4">
+    <p class="px-12 text-left text-2xl uppercase title-font text-gray-500 tracking-widest">Content:</p>
+    <div class="bg-white dark:bg-gray-900">{{post.content | safe}}</div>
+    </div>
+    
+
+    <!-- COMMENT AND REPLIES -->
+        <!-- COMMENT BOX -->
+ 
+        {% if not user.is_authenticated %}
+            <center>
+                <div>
+                    <a href="/auth/login" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                        Login to comment
+                    </a>
+                </div>
+           </center>
+        {% else %}
+           <h2 class="mb-2 text-3xl font-bold text-black dark:text-pink-800 text-center">COMMENTS ({{comments.count|shrink_num}})</h2>
+           <form class='ml-4' method="POST" action="post/comment">
+            {% csrf_token %}
+            <div class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+                 <div class="py-2 px-4 bg-white rounded-t-lg dark:bg-gray-800">
+                        <label for="comment" class="sr-only">Your comment</label>
+                        <textarea id="comment" name="comment" rows="4" class="px-0 w-full text-sm text-gray-900 bg-white outline-none border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Write a comment..." required></textarea>
+                        <input type="hidden" name="postSno" value="{{post.sno}}">
+                        <input type="hidden" name="parentSno" value="{{comments.sno}}">
+                        <div class="g-recaptcha" data-sitekey="6LcTDY8hAAAAAMsgJmPUvu2R-91zsDrquww1Eltk"></div>
+                  </div>
+
+                   
+
+                  <div class="flex justify-between items-center py-2 px-3 border-t dark:border-gray-600">
+                      <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                        Post comment
+                      </button>
+                  </div>
+              </div>
+          </form>
+        {% endif %}
+
+        <!-- COMMENTS -->
+        {% for comment in comments %}
+        <div class="container mx-auto space-y-3 pb-4">
+            <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+            <div class="comment-body-{{comment.sno}}">
+                <div class="flex-row mt-3 mb-3 ml-2 ">
+                   <div class="inline-flex">
+                        <div id="tooltip-{{comment.sno}}" role="tooltip"
+                                class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-gray-900 dark:text-white bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-900 shadow-sm opacity-0 tooltip">
+                               View more about {{comment.user.username}}
+                               <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                        <a data-tooltip-target="tooltip-{{comment.sno}}" href="/site/members/{{comment.user.id}}"><img class="w-10 h-10 rounded-full shadow-lg" src="{% if comment.user.profile %}{{comment.user.profile.avatar.url}}{% else %}{% static 'images/user.svg' %}{% endif %}" alt="{{comment.user.username}}'s image"/></a>
+                        <p class="ml-3 text-black font-bold text-base dark:text-white">{{comment.user.username}}&nbsp; <span data-element="element" class="bg-gray-500 text-white {% if comment.user == request.user or request.user.is_superuser or request.user.is_staff %}text-[0.565rem]{%else%}text-xs{%endif%} font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-white">{{comment.timestamp | naturaltime}} <i class="hidden">{{comment.sno}}-text</i></span></p>
+                    <!-- Dropdown button -->   
+                    {% if comment.user == request.user or request.user.is_superuser or request.user.is_staff %}
+                      
+                    <div class="flex justify-end md:ml-72 sm:ml-[18rem] vsm:ml-[13rem]" data-options-identifier="{{comment.sno}}-text">
+                      <button id="button-{{comment.sno}}" data-dropdown-toggle="dropdown-{{comment.sno}}" class="sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700  focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
+                          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                      </button>
+                    </div>
+                   {% endif %} 
+
+                    <!-- Dropdown menu -->
+                    <div id="dropdown-{{comment.sno}}" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                        <ul class="py-1" aria-labelledby="dropdownButton">
+                        <li>
+                            <button data-modal-toggle="edit-comment-{{comment.sno}}" class="w-full text-left block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</button>
+                        </li>
+                    
+                        <li>
+                        <form class="hover:bg-gray-100 dark:hover:bg-gray-600" action="delete/comment/{{post.slug}}/{{comment.sno}}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="block py-2 px-4 text-sm text-red-600  dark:text-gray-200 dark:hover:text-white">Delete</button>
+                        </form>
+                        </li>
+                        </ul>
+                    </div>
+            
+                    </div>
+                    <p class="ml-14 text-black text-base dark:text-pink-800">{{comment.comments}}</p>
+                </div>
+                <button onclick="toggle({{comment.sno}})" class="inline-flex items-center py-2.5 px-4 mx-5 my-3 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                 Reply
+               </button>
+            </div>
+            </div>
+        </div>
+        <!-- Edit Comment Modal -->
+        <div id="edit-comment-{{comment.sno}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+            <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="edit-comment-{{comment.sno}}">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                    </button>
+                    <div class="py-6 px-6 lg:px-8">
+                        <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit your comment.</h3>
+                        <form class="space-y-6" action="edit/comment/{{post.slug}}/{{comment.sno}}" method="POST">      
+                        {% csrf_token %}  
+                        <div>
+                                <label for="comment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Comment</label>
+                                <textarea rows="5" cols="5" name="comment" id="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>{{comment.comments}}</textarea>
+                            </div>
+                                    
+                            </div>
+                            <div class="g-recaptcha" data-sitekey="6LcTDY8hAAAAAMsgJmPUvu2R-91zsDrquww1Eltk"></div>
+
+                            <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit Comment</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+
+
+       <!-- REPLIES AND REPLY BOX -->
+       <div id="reply-{{comment.sno}}" class="hidden transition-all ease-in-out p-5 border mb-3 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+           <p class="mb-2 text-gray-500 dark:text-gray-400">Reply to this comment.</p>
+              <form method="POST" action="post/comment"> 
+                {% csrf_token %}
+                <div class="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+                    <div class="py-2 px-4 bg-white rounded-t-lg dark:bg-gray-800">
+                        <label for="comment" class="sr-only">Your comment</label>
+                        <textarea id="comment" name="comment" rows="4" class="px-0 w-full text-sm text-gray-900 bg-white outline-none border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Write a comment..." required></textarea>
+                        <input type="hidden" name="postSno" value="{{post.sno}}">
+                        <input type="hidden" name="parentSno" value="{{comment.sno}}">
+                        <div class="g-recaptcha" data-sitekey="6LcTDY8hAAAAAMsgJmPUvu2R-91zsDrquww1Eltk"></div>
+                    </div>
+                      <div class="flex justify-between items-center py-2 px-3 border-t dark:border-gray-600">
+                      {% if user.is_authenticated %}
+                        <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                            Post Reply
+                        </button>
+                      {% else %}  
+                      <a href="/auth/login" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                        Login to Post Reply
+                      </a>    
+                      {% endif %}
+                      </div>
+                    </div>
+                    </form>
+                
+                    
+                {% for reply in replyDict|get_val:comment.sno %} 
+                <div class="container mx-auto space-y-3 pb-4">
+                    <div class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                    <div class="comment-body-{{reply.sno}}">
+                        <div class="flex-row mt-3 mb-3 ml-2 ">
+                           <div class="inline-flex">
+                                <div id="tooltip-{{reply.sno}}" role="tooltip"
+                                        class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-gray-900 dark:text-white bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-900 shadow-sm opacity-0 tooltip">
+                                       View more about {{reply.user.username}}
+                                       <div class="tooltip-arrow" data-popper-arrow></div>
+                                </div>
+                                <a data-tooltip-target="tooltip-{{reply.sno}}" href="/site/members/{{reply.user.id}}"><img class="w-10 h-10 rounded-full shadow-lg" src="{% if reply.user.profile %}{{reply.user.profile.avatar.url}}{% else %}{% static 'images/user.svg' %}{% endif %}" alt="{{reply.user.username}}'s image"/></a>
+                                <p class="ml-3 text-black font-bold text-base dark:text-white">{{reply.user.username}}&nbsp; <span data-element="element" class="bg-gray-500 text-white {% if reply.user == request.user or request.user.is_superuser or request.user.is_staff %}text-[0.5rem]{%else%}text-xs{%endif%} font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-white">{{reply.timestamp | naturaltime}}<i class="hidden">{{reply.sno}}-text</i></span></p>
+                            <!-- Dropdown button -->   
+                            {% if reply.user == request.user or request.user.is_superuser or request.user.is_staff %}
+                                                
+                            <div class="flex justify-end md:ml-72 sm:ml-[18rem] vsm:ml-[13rem]" data-options-identifier="{{reply.sno}}-text"> 
+                            <button id="button-{{reply.sno}}" data-dropdown-toggle="dropdown-{{reply.sno}}" class="sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700  focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                            </button>
+                            </div>
+                            {% endif %} 
+
+                            <!-- Dropdown menu -->
+                            <div id="dropdown-{{reply.sno}}" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1" aria-labelledby="dropdownButton">
+                                <li>
+                                    <button data-modal-toggle="edit-reply-{{reply.sno}}" class="w-full text-left block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Edit</button>
+                                </li>
+
+                                <li>
+                                <form class="hover:bg-gray-100 dark:hover:bg-gray-600" action="delete/comment/{{post.slug}}/{{reply.sno}}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="block py-2 px-4 text-sm text-red-600  dark:text-gray-200 dark:hover:text-white">Delete</button>
+                                </form>
+                                </li>
+                                </ul>
+                            </div>
+                            </div>
+                            <p class="ml-14 text-black text-base dark:text-pink-800">{{reply.comments}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- Edit Reply Modal -->
+                <div id="edit-reply-{{reply.sno}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+                    <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="edit-reply-{{reply.sno}}">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                            </button>
+                            <div class="py-6 px-6 lg:px-8">
+                                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit your reply.</h3>
+                                <form class="space-y-6" action="edit/comment/{{post.slug}}/{{reply.sno}}" method="POST">      
+                                {% csrf_token %}  
+                                <div>
+                                        <label for="comment" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Comment</label>
+                                        <textarea rows="5" cols="5" name="comment" id="comment" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>{{reply.comments}}</textarea>
+                                    </div>
+                                            
+                                    </div>
+                                     
+                                    <div class="g-recaptcha" data-sitekey="6LcTDY8hAAAAAMsgJmPUvu2R-91zsDrquww1Eltk"></div>
+
+                                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit Reply</button>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+                {% endfor %}
+                </div>  
+        {% endfor %}
+
+        <div class="hidden md:ml-[19.8rem] md:ml-[20rem]">{% csrf_token %}</div>
+
+{% endblock body %}
+
+{% block script %}  
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="{% static 'script/blog.item.js' %}"></script>
+
+<script>
+  const elems = document.querySelectorAll('span[data-element="element"]')
+
+  Array.from(elems).forEach(elem => {
+
+      var text = elem.innerText;
+      var main_elem = document.querySelector(`[data-options-identifier="${elem.querySelector('i').innerText}"]`)
+    
+      if(!(text.length > 16)){
+        main_elem.classList.remove("md:ml-72")
+        main_elem.classList.add("md:ml-[19.8rem]")
+      }
+      
+  })
+
+</script> 
+    
+{% endblock script %}

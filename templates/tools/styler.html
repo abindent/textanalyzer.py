@@ -1,0 +1,836 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}Style your text with our fancy font generator.{% endblock metadescription %}
+{% block title %}Styler | TextAnalyzer{% endblock title %}
+{% block head %}<script src="{% static 'script/jquery-3.6.0.min.js' %}"></script>{% endblock head %}
+{% block body %}
+<!-- STYLER - FANCY FONT GENERATOR -->
+
+<center><h1 class="text-3xl sm:text-lg md:text-3xl font-bold text-black dark:text-pink-700">🍒  🎀  𝐹𝒶𝓃𝒸𝓎 𝒯𝑒𝓍𝓉 𝒢𝑒𝓃𝑒𝓇𝒶𝓉💮𝓇 (𝒯𝑒𝓍𝓉 𝒮𝓉𝓎𝓁𝒾𝓃𝑔 𝒯❁🍩𝓁)  🎀  🍒</h1></center>   
+<div class="container flex items-center justify-center py-12">
+<textarea name="text" placeholder="Type or paste text here.." value="" class="fancytext ml-1 md:ml-10 sm:ml-1 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="required"></textarea>
+
+</div>
+
+<div class="container items-center justify-center px-12" id="result">
+    <div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-1"
+        value="𝔓𝔯𝔢𝔳𝔦𝔢𝔴 𝔗𝔢𝔵𝔱" id="copy_0" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_0"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-2"
+        value="𝕻𝖗𝖊𝖛𝖎𝖊𝖜 𝕿𝖊𝖝𝖙" id="copy_1" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_1"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-3"
+        value="✋♪  Ƥ𝔯Ⓔᐯ𝔦乇ω т乇𝐗𝐭  😈🌷" id="copy_2" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_2"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-4"
+        value="𝓟𝓻𝓮𝓿𝓲𝓮𝔀 𝓣𝓮𝔁𝓽" id="copy_3" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_3"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-5"
+        value="𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉" id="copy_4" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_4"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-6"
+        value="ℙ𝕣𝕖𝕧𝕚𝕖𝕨 𝕋𝕖𝕩𝕥" id="copy_5" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_5"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-7"
+        value="Ｐｒｅｖｉｅｗ Ｔｅｘｔ" id="copy_6" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_6"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-8"
+        value="🐓 ⋆ 🐤  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  🐤 ⋆ 🐓" id="copy_7" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_7"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-9"
+        value="ᴘʀᴇᴠɪᴇᴡ ᴛᴇxᴛ" id="copy_8" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_8"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-10"
+        value="ʇxǝ⊥ ʍǝıʌǝɹԀ" id="copy_9" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_9"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-11"
+        value="P⃣&nbsp;&nbsp;&nbsp;r⃣&nbsp;&nbsp;&nbsp;e⃣&nbsp;&nbsp;&nbsp;v⃣&nbsp;&nbsp;&nbsp;i⃣&nbsp;&nbsp;&nbsp;e⃣&nbsp;&nbsp;&nbsp;w⃣ &nbsp;&nbsp;&nbsp;T⃣&nbsp;&nbsp;&nbsp;e⃣&nbsp;&nbsp;&nbsp;x⃣&nbsp;&nbsp;&nbsp;t⃣"
+        id="copy_10" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_10"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-12"
+        value="P⃞ &nbsp;&nbsp; r⃞ &nbsp;&nbsp; e⃞ &nbsp;&nbsp; v⃞ &nbsp;&nbsp; i⃞ &nbsp;&nbsp; e⃞ &nbsp;&nbsp; w⃞  &nbsp;&nbsp; T⃞ &nbsp;&nbsp; e⃞ &nbsp;&nbsp; x⃞ &nbsp;&nbsp; t⃞"
+        id="copy_11" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_11"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-13"
+        value="🄿🅁🄴🅅🄸🄴🅆 🅃🄴🅇🅃" id="copy_12" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_12"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-14"
+        value="ƚxɘT wɘivɘɿꟼ" id="copy_13" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_13"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-15"
+        value="P̸̡̛̬̪̙͎̻̺̹̻̎͆̇̋̆r̸̡͙̦̺̜̪̋̅͌͋̈̈́̀̈́͠͝ȩ̶̯͙̰̜̈́̂̒͠v̸̛͖̰̤̗̝͕̆͊̐̂́̀͜͝͝ị̵̡̲̩̘̟͎̫̝̊̀̎̌̎̈́͂̀̕ẻ̴͓͈̗̖̞̖̣̯̰̓͑͊̐̕w̷̨̛̟͎̗͈̯̘̤͆͆̇͒̈̋̈͠ ̶̲̮̦͇̣̎̾́ͅT̴̖̜̄͋̄͋̇̄̄͗͘͝e̶̳̰̲͙̼͓̣̰͕̩͊̿̐͆͗̽x̵̼̫̙͇̘̗̒̄̽̾̎̑̽̀̾̚t̴͙́̈́͝"
+        id="copy_14" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_14"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-16"
+        value="🅿🆁🅴🆅🅸🅴🆆 🆃🅴🆇🆃" id="copy_15" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_15"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-17"
+        value="ₚᵣₑᵥᵢₑw ₜₑₓₜ" id="copy_16" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_16"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-18"
+        value="ᴾʳᵉᵛⁱᵉʷ ᵀᵉˣᵗ" id="copy_17" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_17"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-19"
+        value="Ⓟⓡⓔⓥⓘⓔⓦ Ⓣⓔⓧⓣ" id="copy_18" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_18"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-20"
+        value="קгєשเєฬ ՇєאՇ" id="copy_19" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_19"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-21"
+        value="Pɾҽʋιҽɯ Tҽxƚ" id="copy_20" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_20"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-22"
+        value="քʀɛʋɨɛա ȶɛӼȶ" id="copy_21" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_21"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-23"
+        value="ᎮᏒᏋᏉᎥᏋᏇ ᏖᏋጀᏖ" id="copy_22" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_22"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-24"
+        value="℘ཞɛ۷ıɛῳ ɬɛҳɬ" id="copy_23" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_23"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-25"
+        value="prēงiēຟ tēxt" id="copy_24" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_24"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-26"
+        value="𝐏𝐫𝐞𝐯𝐢𝐞𝐰 𝐓𝐞𝐱𝐭" id="copy_25" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_25"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-27"
+        value="𝗣𝗿𝗲𝘃𝗶𝗲𝘄 𝗧𝗲𝘅𝘁" id="copy_26" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_26"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-28"
+        value="𝘗𝘳𝘦𝘷𝘪𝘦𝘸 𝘛𝘦𝘹𝘵" id="copy_27" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_27"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-29"
+        value="𝙋𝙧𝙚𝙫𝙞𝙚𝙬 𝙏𝙚𝙭𝙩" id="copy_28" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_28"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-30"
+        value="𝙿𝚛𝚎𝚟𝚒𝚎𝚠 𝚃𝚎𝚡𝚝" id="copy_29" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_29"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-31"
+        value="PЯΣVIΣЩ ƬΣXƬ" id="copy_30" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_30"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-32"
+        value="ρяєνιєω тєχт" id="copy_31" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_31"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-33"
+        value="þrêvïêw †êx†" id="copy_32" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_32"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-34"
+        value="₱ⱤɆVłɆ₩ ₮ɆӾ₮" id="copy_33" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_33"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-35"
+        value="卩尺乇ᐯ丨乇山 ㄒ乇乂ㄒ" id="copy_34" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_34"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-36"
+        value="ｱ尺乇√ﾉ乇W ｲ乇ﾒｲ" id="copy_35" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_35"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-37"
+        value="【P】【r】【e】【v】【i】【e】【w】 【T】【e】【x】【t】" id="copy_36" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_36"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-38"
+        value="『P』『r』『e』『v』『i』『e』『w』 『T』『e』『x』『t』" id="copy_37" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_37"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-39"
+        value="≋P≋r≋e≋v≋i≋e≋w≋ ≋T≋e≋x≋t≋" id="copy_38" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_38"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-40"
+        value="░P░r░e░v░i░e░w░ ░T░e░x░t░" id="copy_39" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_39"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-41"
+        value="(っ◔◡◔)っ ♥ Preview Text ♥" id="copy_40" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_40"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-42"
+        value="Ｐｒｅｖｉｅｗ　Ｔｅｘｔ　閲ワョ" id="copy_41" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_41"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-43"
+        value="Ｐｒｅｖｉｅｗ░Ｔｅｘｔ　（閲ワョ）" id="copy_42" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_42"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-44"
+        value="【&#65279;Ｐｒｅｖｉｅｗ　Ｔｅｘｔ】" id="copy_43" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_43"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-45"
+        value="˜”*°•.˜”*°• Preview Text •°*”˜.•°*”˜" id="copy_44" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_44"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-46"
+        value="[̲̅P][̲̅r][̲̅e][̲̅v][̲̅i][̲̅e][̲̅w] [̲̅T][̲̅e][̲̅x][̲̅t]" id="copy_45" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_45"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-47"
+        value="P҉r҉e҉v҉i҉e҉w҉ ҉T҉e҉x҉t҉" id="copy_46" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_46"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-48"
+        value="φɾҽѵìҽա Ͳҽ×է" id="copy_47" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_47"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-49"
+        value="ᑭᖇEᐯIEᗯ TE᙭T" id="copy_48" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_48"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-50"
+        value="ᕵᖇᘿᐺᓰᘿᘺ ᖶᘿ᙭ᖶ" id="copy_49" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_49"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-51"
+        value="P̶r̶e̶v̶i̶e̶w̶ ̶T̶e̶x̶t̶" id="copy_50" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_50"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-52"
+        value="P̴r̴e̴v̴i̴e̴w̴ ̴T̴e̴x̴t̴" id="copy_51" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_51"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-53"
+        value="P̷r̷e̷v̷i̷e̷w̷ ̷T̷e̷x̷t̷" id="copy_52" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_52"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-54"
+        value="P̲r̲e̲v̲i̲e̲w̲ ̲T̲e̲x̲t̲" id="copy_53" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_53"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-55"
+        value="P̳r̳e̳v̳i̳e̳w̳ ̳T̳e̳x̳t̳" id="copy_54" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_54"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-56"
+        value="P̾r̾e̾v̾i̾e̾w̾ ̾T̾e̾x̾t̾" id="copy_55" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_55"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-57"
+        value="P♥r♥e♥v♥i♥e♥w♥ ♥T♥e♥x♥t" id="copy_56" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_56"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-58"
+        value="P͎r͎e͎v͎i͎e͎w͎ ͎T͎e͎x͎t͎" id="copy_57" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_57"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-59"
+        value="P͓̽r͓̽e͓̽v͓̽i͓̽e͓̽w͓̽ ͓̽T͓̽e͓̽x͓̽t͓̽" id="copy_58" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_58"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-60"
+        value="Wingdings: 🏱︎❒︎♏︎❖︎♓︎♏︎⬥︎ ❄︎♏︎⌧︎⧫︎" id="copy_59" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_59"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-61"
+        value="✴  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  ✴" id="copy_60" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_60"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-62"
+        value="✶  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  ✶" id="copy_61" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_61"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-63"
+        value="✴｡  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  ｡✴" id="copy_62" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_62"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-64"
+        value="🐳  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  🐳" id="copy_63" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_63"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-65"
+        value="—(••÷  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  ÷••(—" id="copy_64" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_64"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-66"
+        value="👊😎  𝓟яε𝐯ᶤ€ʷ 𝓉ᵉ𝔁𝓣  ★🐙" id="copy_65" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_65"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-67"
+        value="💀♪  𝕡𝕣Ⓔᐯᶤ𝐄ω 丅乇𝐗Ť  ☞🐙" id="copy_66" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_66"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-68"
+        value="`•.¸¸.•´´¯`••._.• ρⓡєⓥเ𝓔Ŵ 𝓣ε𝔁𝔱 •._.••`¯´´•.¸¸.•`" id="copy_67" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_67"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-69"
+        value="🐣💜  ƤяⒺν𝓘ᵉᗯ тᵉＸ𝐭  🎃🐠" id="copy_68" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_68"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-70"
+        value="|!¤*'~``~'*¤!| ρŕ𝑒𝕍เⓔ𝓦 ţ𝔼𝔵Ŧ |!¤*'~``~'*¤!|" id="copy_69" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_69"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-71"
+        value="♘💔  קŕᵉ𝐯ｉ𝐄Ⓦ 𝐓ｅｘ𝐭  ♗🐸" id="copy_70" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_70"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-72"
+        value="🐲😎  𝓅ŕⓔᵛĮ𝐞𝓌 Ť𝒆𝓧𝔱  ☢♙" id="copy_71" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_71"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-73"
+        value="¸,ø¤º°`°º¤ø,¸¸,ø¤º° ρ𝓇є𝐕𝒾€ฬ Ŧεｘ𝐭 °º¤ø,¸¸,ø¤º°`°º¤ø,¸" id="copy_72" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_72"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-74"
+        value="👣🎯  ρᖇᗴνᶤ𝐞𝐰 𝔱Ẹ𝔵𝓽  ✊🍧" id="copy_73" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_73"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-75"
+        value="🍔🍓  ρŕє𝐯𝔦є𝓌 Ⓣε𝕩𝓣  🍟🐠" id="copy_74" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_74"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-76"
+        value="░▒▓█►─═  𝓅ＲẸV𝐢εᗯ 𝓉𝒆𝕩𝓽 ═─◄█▓▒░" id="copy_75" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_75"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-77"
+        value="]|I{•------» ᑭＲ乇𝕧Ꭵｅ𝔀 𝐓€ｘ丅 «------•}I|[" id="copy_76" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_76"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-78"
+        value="♧☹  𝔭Ř𝐄ν𝒾ε𝐖 𝕥є𝓍𝓽  💜♝" id="copy_77" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_77"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-79"
+        value="💞🎄  ƤＲ乇ѶĮⒺ𝓌 ᵗｅ𝔁𝐭  👤♕" id="copy_78" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_78"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-80"
+        value="🐊♤  ⓟ𝓇ⒺV𝓲ｅｗ Ťєｘ𝐭  🐳👺" id="copy_79" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_79"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-81"
+        value="🎄🎅  𝓹ⓇᵉVƗє𝓦 𝓣εχ𝐓  ♨🍩" id="copy_80" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_80"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-82"
+        value="💢♖  ｐг𝕖𝐕ᶤє𝐖 Ｔ𝔼ⓍŤ  ♖♙" id="copy_81" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_81"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-83"
+        value="ඏ🐚  ℙ尺𝔢ｖ𝓲єŴ 𝕥Ｅ𝓍t  ♝💚" id="copy_82" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_82"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-84"
+        value="🔥💔  ⓟⓇєVｉＥＷ t𝐄𝕩𝐭  🎉♜" id="copy_83" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_83"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-85"
+        value="😈☞  ℙ𝕣乇νｉᵉ𝓦 𝐭𝑒Ｘţ  💲♤" id="copy_84" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_84"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-86"
+        value="♔☠  𝓹Ｒ€ᐯ丨ᗴŴ Ｔєx𝔱  💚💢" id="copy_85" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_85"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-87"
+        value=".  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  ." id="copy_86" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_86"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-88"
+        value="🐢  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  🐢" id="copy_87" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_87"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+<div class="input flex mb-2"><input type="text"
+        class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 text-89"
+        value="🐞 ⋆ 🐾  🎀  𝒫𝓇𝑒𝓋𝒾𝑒𝓌 𝒯𝑒𝓍𝓉  🎀  🐾 ⋆ 🐞" id="copy_88" readonly="readonly"/>
+    <button type="button"
+        class="copybutton text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        data-clipboard-action="copy" data-clipboard-target="#copy_88"> <i class="fas fa-copy">&nbsp;</i>
+        Copy
+    </button>
+</div>
+</div>
+<center>
+    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 loadmore">Load More</button>
+</center>
+</div>
+
+
+{% endblock body %} 
+
+{% block script %}
+<script src="{% static 'packages/clipboard/dist/clipboard.min.js' %}"></script>
+<script src="{% static 'script/styler/clipboard.js' %}"></script>
+<script src="{% static 'script/styler/loadmore.js' %}"></script>
+<script src="{% static 'script/styler/styler.js' %}"></script>
+<script src="{% static 'packages/esrever/esrever.js' %}"></script>
+{% endblock script %}

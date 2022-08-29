@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}Just wanna to analyse your text? Come here and start analyzing.{% endblock metadescription %}
+{% block title %}Home | TextAnalzyer{% endblock title %}
+
+{% block body %}
+<!-- HOME -->
+<section class="py-5 text-center container">
+    <h1 class="fw-light text-3xl text-black dark:text-white py-2"><i class="fas fa-diagnoses"></i> TEXT ANALYZER</h1>
+    <span class="text-xl text-[silver] dark:text-pink-600 mt-[1.5rem]">Wanna to analyse your text?<br> <strong> Come here and start analyzing your
+        text.</strong></span>
+        <div class="text-black dark:text-pink-600 mt-[2.5rem]">
+            <i class="fas fa-edit"></i> Edit, <i class="fas fa-text-height"></i> Analyze, <i
+          class="fas fa-remove-format"></i> Style and Design your text with our tool<br><i class="fas fa-diagnoses"></i>
+        Text Analyzer.<p>
+        </div>
+       <div class="flex items-center justify-center mt-[1.6rem]">
+        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            <a href="/tools/analyser"><i class="fas fa-edit"></i>&nbsp;Start Analysing</a>
+          </span>
+        </button>
+        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            <a href="/tools/styler"><i class="fas fa-remove-format"></i>&nbsp;Start Styling</a>
+          </span>
+        </button>
+       </div>
+       <center>
+     <div class="hidden md:grid grid-cols-2 gap-0  items-center justify-center mt-[2.5rem]">
+      <p class="font-bold text-black dark:text-pink-600 mr-5">
+        <span class="text-5xl">The Powerfull Text Analyzer, Editor and Designer</span><br/><span class="text-lg font-light">Quickly design and customize your text with our tool, very easy to use it, fully free, design with our text designer like microsoft word and much more.</span>
+        
+      </p>
+       <img src="{% static 'images/analyzer.png' %}" class="w-[26rem]"/>
+     </div>
+    </center>
+       <div class="flex flex-col md:hidden">
+        <p class="font-bold text-black dark:text-pink-600">
+          <span class="text-5xl">The Powerfull Text Analyzer, Editor and Designer</span><br/><span class="text-lg font-light">Quickly design and customize your text with our tool, very easy to use it, fully free, design with our text designer like microsoft word and much more.</span>
+          
+        </p><br/>
+         <img src="{% static 'images/analyzer.png' %}"/>
+       </div>
+     
+       <div class="flex items-center justify-center mt-[1.6rem]">
+        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            <a href="https://discord.io/OpenSourceGames"><i class="fab fa-discord"></i> Join Our Discord Server</a>
+          </span>
+        </button>
+        <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-lime-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            <a href="https://github.com/abindent/textanalyzer.py"><i class="fab fa-github"></i> Visit Our Github</a>
+          </span>
+        </button>
+       </div>    
+</section>
+{% endblock body %}

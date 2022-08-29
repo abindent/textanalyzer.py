@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}Something about TextAnalyzer.{% endblock metadescription %}
+{% block title %}About | TextAnalyzer{% endblock title %}
+
+{% block body %}
+<!-- ABOUT -->
+
+<div class="flex flex-col flex-wrap items-center justify-center py-[1rem]">
+    <a class="flex flex-col items-center  bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+        <img class="object-cover w-96 h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="{% static 'images/analyzer.png' %}" alt="logo">
+        <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-5xl font-bold tracking-tight text-black dark:text-pink-600">The Powerfull Text Analyser, Editor and Designer Tool</h5>
+        <p class="mb-3 font-normal text-black dark:text-pink-600">Quickly design and customize your text with our tool, very easy to use it, fully free, design with our text designer like microsoft word and much more.<br/></p>
+       </div>
+    </a>
+    <div><a href="https://discord.io/OpenSourceGames" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2"><i class="fab fa-discord"></i> Join our Discord</a>    
+        <a href="https://github.com/abindent/textanalyzer.py" class="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 ml-3 mb-2 text-center"><i class="fab fa-github"></i> Visit Our Github</a>    
+     </div>
+    
+</div>
+{% endblock body %}

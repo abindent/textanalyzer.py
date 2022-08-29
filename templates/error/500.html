@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block metadescription %}Something is wrong with our internal parts. Someone might have damaged it or it's a dev issue which I cannot express.{% endblock metadescription %}
+{% block title %}Internal Error | TextAnalyzer{% endblock title %}
+
+{% block body %}
+
+<section class="bg-white dark:bg-gray-900"> 
+    <div class="md:grid flex flex-col md:grid-cols-2 md:gap-8 content-center py-8 px-4 mx-auto max-w-7xl xl:py-10 lg:px-6">
+        <div class="self-center">
+            <h1 class="mb-4 text-2xl font-bold  text-primary-600 dark:text-primary-500">500 Internal Error</h1>
+            <p class="text-3xl tracking-tight font-bold text-gray-900 lg:mb-10 md:text-4xl dark:text-white">Whoops! Something wrong happened with my stomach. I am internally sad.</p>
+        
+        </div>
+        <img class="mx-auto mb-4 md:flex" src="https://res.cloudinary.com/opensourcegames/image/upload/v1656432593/TextAnalyser/500_cqpdsq.svg" alt="500 image">
+    
+    </div>
+</section>
+
+{% endblock body %}

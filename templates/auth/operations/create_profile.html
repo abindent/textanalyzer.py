@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Create Profile | TextAnalyzer{% endblock title %}
+
+{% block body %}
+<!-- CRETAE PROFILE -->
+<form action="/user/profile/create" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+  
+        <h2 class="text-black dark:text-pink-700 font-bold text-center">CREATE PROFILE</h2> 
+
+        <div class="flex w-full mb-6 group">
+            <label for="beta" class="relative inline-flex items-center mb-4 cursor-pointer">
+                <input type="checkbox" id="beta" name="beta" value="on" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Enable or Disable Beta</span>
+              </label>
+        </div>
+
+        <div class="relative z-0 w-full mb-6 group">
+            <label for="bio" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Enter the Bio</label>
+            <textarea id="bio" name="bio" rows="5" cols="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" maxlength="300" required></textarea>
+        </div>
+
+     
+       
+        <div class="mb-2">
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="avatar">Choose Avatar Image</label>
+            <input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="avatar" name="avatar" type="file">
+
+        </div>
+        <div class="g-recaptcha" data-sitekey="6LcTDY8hAAAAAMsgJmPUvu2R-91zsDrquww1Eltk"></div>
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fa-solid fa-circle-plus fa-beat"></i>&nbsp;Create</button>
+        
+</form>
+
+{% endblock body %}
+
+
+{% block script %}
+<script src="https://www.google.com/recaptcha/api.js"></script>
+{% endblock script %}

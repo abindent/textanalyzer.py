@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metdescription %}A beautiful text editpr for you.{% endblock metdescription %}
+{% block title %}Editor | TextAnalyzer{% endblock title %}
+{% block head %}
+<script src="{% static 'packages/tinymce/tinymce.min.js' %}"></script>
+{% comment %} <script src="https://cdn.tiny.cloud/1/gjvp0jzu4kr5c37zixrvdmw931aoemzbatvuadw17iich6eh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> {% endcomment %}
+<script src="{% static 'script/tinymce/tiny.js' %}"></script>
+{% endblock head %}
+
+{% block body %}
+<!-- EDITOR -->
+<form method="post">
+{% csrf_token %}
+<textarea id="mytextarea" rows="22.5" cols="8" placeholder="Start Using the editor."></textarea>
+</form>
+{% endblock body %}
+

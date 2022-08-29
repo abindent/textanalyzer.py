@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block metadescription %}Forgot your password?? Don't worry reset it here.{% endblock metadescription %}
+{% block title %}Forgot Password | TextAnalyzer{% endblock title %}
+
+{% block body %}
+<form class="font-bold text-black dark:text-pink-800" action="/auth/forgot_password/reset/" method="post">
+    {% csrf_token %}
+    <div class="py-12 px-12">
+        <h2 class="text-3xl font-bold text-center mb-2">RESET PASSWORD</h2>
+        {{ form.as_p }}
+    </div>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><i class="fas fa-envelope"></i>&nbsp;Send e-Mail</button>
+
+</form>
+
+{% endblock body %}

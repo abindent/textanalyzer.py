@@ -1,0 +1,46 @@
+# MEIDA UPLOAD AND MANAGEMENT SERVICE PACKAGE
+cloudinary==1.29.0
+pillow==9.2.0
+
+# DJANGO AND IT'S EXTENSIONS
+Django==4.0.4
+
+## TEMPLATETAG EXTENSIONS
+humanfriendly==10.0
+
+## DATABASE MANAGEMENT PACKAGE
+dj_database_url==0.5.0
+psycopg2==2.9.3 
+
+## EMAIL SENDING SERVICE PACKAGE
+django-anymail==8.6
+
+## STATIC FILE COMPRESSOR PACKAGE
+django-compressor==4.0
+python-decouple==3.6 
+
+## DJANGO EXTERNAL EXTENSIONS
+django-mathfilters==1.0.0
+django-crispy-forms==1.14.0
+django-jazzmin==2.5.0
+django-livereload-server==0.4
+django-recaptcha==3.0.0
+django-simpleinliner==0.3.8
+
+## WHITENOISE AND GUNICORN FOR HOSTING PURPOSE
+whitenoise==6.1.0
+gunicorn==20.1.0
+
+## ENVIRONMENT VARIABLE MANAGEMENT PACKAGE
+python-dotenv==0.20.0
+
+## UUID GENERATOR PACKAGE
+uuid==1.30
+
+## SOCIAL AUTH PACKAGE 
+python3-openid >= 3.0.8
+requests-oauthlib >= 0.3.0
+pyjwt[crypto] >= 1.7
+
+# EXTRA PACKAGE
+BeautifulSoup4==4.11.1

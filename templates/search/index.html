@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block metadescription %}Search through our site.{% endblock metadescription %}
+{% block title %}Search | TextAnalyzer{% endblock title %}
+
+{% block body %}
+<!-- SEARCH -->
+<!-- Breadcrumb -->
+<nav class="flex py-3 px-5 text-gray-700 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+    aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+            <a href="/"
+                class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                <svg class="mr-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                    </path>
+                </svg>
+                Home
+            </a>
+        </li>
+        <li>
+            <div class="flex items-center">
+                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <a
+                    class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Search</a>
+            </div>
+        </li>
+
+        <li aria-current="page">
+            <div class="flex items-center">
+                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">{{query}}</span>
+            </div>
+        </li>
+    </ol>
+</nav>
+
+<!-- SEARCH RESULTS -->
+<h2 class="text-3xl font-bold text-black dark:text-pink-800 text-center mb-4">SEARCH RESULTS</h2>
+{% if allPosts|length < 1 %}
+<div class="py-12 px-12 items-center justify-center">
+<p class="text-red-600 text-xl">No search results</p>
+<p class='text-green-600 dark:text-green-800'>Your search query : <b class="text-yellow-600 dark:text-yellow-400">{{query}}</b> did not match any documents. <br>
+<b class="text-pink-700">Suggestions:</b></p>
+<ul class="list-disc text-slate-500 dark:text-white">
+<li>Make sure that all words are spelled correctly.</li>
+<li>Try more general keywords.</li>
+<li> Try fewer keywords.</li>
+<li> Try different keywords.</li>
+</li>
+</ul>
+</div>
+{% endif %}
+
+{% for post in allPosts %}
+<div class="p-4 w-full text-center bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <h5 class="mb-2 text-3xl font-bold text-gray-900 dark:text-white">{{post.title}}</h5>
+    <p class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">{{post.description|safe | truncatechars:200}}</p>
+    <div class="justify-center items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
+        <a href="#" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+           
+            <div class="text-left">
+                <div onclick="visitPage('{{post.slug}}')" class="-mt-1 font-sans text-sm font-semibold">Visit the page</div>
+            </div>
+        </a>
+      
+    </div>
+</div>
+{% endfor %}
+{% block script %}
+<script>
+    function visitPage(slug){
+      window.location.href = "https://" + window.location.hostname + "/" + slug
+   }
+
+</script>
+{% endblock script %}
+{% endblock body %}

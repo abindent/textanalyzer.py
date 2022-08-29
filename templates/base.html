@@ -1,0 +1,478 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="description" content="{% block metadescription %}{% endblock metadescription %}" />
+    <meta name="url" content="{{request.get_full_path}}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+    
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    
+    <script src="https://kit.fontawesome.com/580eec0a32.js" crossorigin="anonymous"></script>
+        <title>{% block title %}{% endblock title %}</title>
+    {% block head %}{% endblock head %}
+
+    <script>
+        if (!localStorage.getItem("theme")) {
+            localStorage.setItem("theme", "light")
+        }
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+    </script>
+
+
+    {% block headerScript %}{% endblock headerScript %}
+
+</head>
+
+<body class="bg-white dark:bg-gray-800">
+    <!-- NAVBAR -->
+
+    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <a href="/" class="flex items-center">
+                <img src="{% static 'images/favicon.png' %}" class="mr-3 h-6 sm:h-9" alt="Logo">
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">TextAnalyzer</span>
+            </a>
+
+            <button data-collapse-toggle="mobile-menu" type="button"
+                class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="mobile-menu" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
+                <div class="relative mt-3 md:hidden">
+                    <form action="/search" method="GET">
+                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                          
+                        <input type="search" name="q" id="search-navbar"
+                            class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Search...">
+                    </form>
+                </div>
+
+                <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+
+                    {% if "/" == request.path %}
+                    <li>
+                        <a href="/"
+                            class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                            aria-current="page">Home</a>
+                    </li>
+
+                    {% else %}
+                    <li>
+                        <a href="/"
+                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
+                    </li>
+                    {% endif %}
+
+                    {% if "/about" in request.path %}
+                    <li>
+                        <a href="/about"
+                            class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                            aria-current="page">About</a>
+                    </li>
+
+                    {% else %}
+                    <li>
+                        <a href="/about"
+                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    </li>
+                    {% endif %}
+
+                    {% if "/blog/" in request.path or blogisActive == "active" %}
+                    <li>
+                        <a href="/blog"
+                            class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                            aria-current="page">Blog</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="/blog"
+                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog</a>
+                    </li>
+                    {% endif %}
+
+                    <div class="pb-[1rem]"><button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                            class="flex items-center justify-between w-full py-1 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Tools
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg></button></div>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownNavbar"
+                        class="z-10 hidden bg-white divide-y divide-gray-600 rounded shadow-xl w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                {% if "/tools/analyser" in request.path %}
+                                <a href="/tools/analyser"
+                                    class="block px-4 py-2 text-white bg-blue-700 dark:text-white md:text-white">Analyser</a>
+                                {% else %}
+                                <a href="/tools/analyser"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Analyser</a>
+                                {% endif %}
+                            </li>
+                            <li>
+                                {% if "/tools/editor" in request.path %}
+                                <a href="/tools/editor"
+                                    class="block px-4 py-2 text-white bg-blue-700 dark:text-white md:text-white ">Text
+                                    Editor</a>
+                                {% else %}
+                                <a href="/tools/editor"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Text
+                                    Editor</a>
+                                {% endif %}
+                            </li>
+                            <li>
+                                {% if "/tools/styler" in request.path %}
+                                <a href="/tools/styler"
+                                    class="block px-4 py-2 text-white bg-blue-700 dark:text-white md:text-white">Styler</a>
+                                {% else %}
+                                <a href="/tools/styler"
+                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Styler</a>
+                                {% endif %}
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    {% if "/contact" in request.path %}
+                    <li>
+                        <a href="/contact"
+                            class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                            aria-current="page">Contact</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="/contact"
+                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    </li>
+                    {% endif %}
+
+
+                    <div class="pb-[1rem]"><button id="dropdownNavbarLink1" data-dropdown-toggle="dropdownNavbar1"
+                        class="flex items-center justify-between w-full py-1 pl-3 pr-4 font-medium text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">More
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg></button></div>
+                <!-- Dropdown menu -->
+                <div id="dropdownNavbar1"
+                    class="z-10 hidden bg-white divide-y divide-gray-600 rounded shadow-xl w-44 dark:bg-gray-700 dark:divide-gray-600">
+                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                        <li>
+                            {% if "/application" in request.path %}
+                            <a href="/application"
+                                class="block px-4 py-2 text-white bg-blue-700 dark:text-white md:text-white">Applications</a>
+                            {% else %}
+                            <a href="/application"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Applications</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if "/site/members" in request.path %}
+                            <a href="/site/members"
+                                class="block px-4 py-2 text-white bg-blue-700 dark:text-white md:text-white">Site Members</a>
+                            {% else %}
+                            <a href="/site/members"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Site Members</a>
+                            {% endif %}
+                        </li>
+                        <li>
+                            {% if "/privacy-policy" in request.path %}
+                            <a href="/privacy-policy"
+                                class="block px-4 py-2 text-white bg-blue-700 dark:text-white md:text-white ">Privacy Policy</a>
+                            {% else %}
+                            <a href="/privacy-policy"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Privacy Policy</a>
+                            {% endif %}
+                        </li>
+                       
+                    </ul>
+                </div>
+
+                    <button data-tooltip-target="tooltip-bottom" id="theme-toggle" type="button"
+                        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm sm:p-[1rem] p-0 md:p-0 mb-4">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                        <div id="tooltip-bottom" role="tooltip"
+                            class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-gray-900 dark:text-white bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-900 shadow-sm opacity-0 tooltip">
+                            Togggle <span id="tooltip-span">Dark</span> Mode
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                    </button>
+                    {% if user.is_authenticated %}
+                    <div class="flex items-center md:order-2 space-x-3">
+                        <button type="button"
+                            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 ring-2 focus:ring-4 ring-gray-400 focus:ring-gray-700 dark:focus:ring-gray-600"
+                            id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="w-8 h-8 rounded-full" src="{% if user.profile.avatar %}{{user.profile.avatar.url}}{% else %}{% static 'images/user.svg' %}{% endif %}" alt="user photo">
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                            id="dropdown">
+                            <div class="py-3 px-4">
+                                <span class="block text-sm text-gray-900 dark:text-white">{{user.first_name}}
+                                    {{user.last_name}}</span>
+                                <span
+                                    class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{user.email}}</span>
+                            </div>
+                            <ul class="py-1" aria-labelledby="dropdown">
+                                <li>
+                                    <a href="/user/dashboard"
+                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><i class="fas fa-gauge"></i>&nbsp;Dashboard</a>
+                                </li>
+                                {% if user.is_superuser %}
+                                <li>
+                                    <a href="/admin"
+                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><i class="fas fa-computer"></i>&nbsp;Admin
+                                        Panel</a>
+                                </li>
+                                {% endif %}
+                                <li>
+                                    <a href="/user/profile"
+                                        class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"><i class="fas fa-circle-user"></i>&nbsp;Profile</a>
+                                </li>
+                                <li>
+                                    <form class="hover:bg-gray-100 dark:hover:bg-gray-600" action="/auth/logout" method="POST">
+                                        {% csrf_token %}
+                                      <button type="submit" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white font-bold"><i class="fas fa-flip-horizontal fa-arrow-right-from-bracket"></i>&nbsp;Sign
+                                            out</button>
+                                    </form>    
+                                </li>
+                            </ul>
+                        </div>
+                        {% else %}
+                        <div class="inline-flex space-x-3 mb-3">
+                            <a href='/auth/login'  class="rounded bg-blue-700 text-white py-[0.25rem] px-[0.25rem]"><i class="fas fa-arrow-right-from-bracket"></i>&nbsp;Login</a>
+                            <a href='/auth/signup' class="rounded bg-blue-700 text-white py-[0.25rem] px-[0.25rem]"><i class="fas fa-user-plus"></i>&nbsp;SignUp</a>
+                        </div>
+                        {% endif %}
+                        <div class="hidden relative md:block">
+                            <form action="/search" method="GET">
+                                <div
+                                    class="flex absolute inset-y-0 left-0 items-center  pb-1 p-1 pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <input type="search" name="q" id="search-navbar"
+                                    class="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Search...">
+                            </form>
+                        </div>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+    {% for message in messages %}
+    {%if message.tags == "info"%}
+    <div id="alert-border-1" class="ease-out flex p-4 mb-4 bg-blue-100 border-t-4 border-blue-500 dark:bg-blue-200"
+        role="alert">
+        <svg class="flex-shrink-0 w-5 h-5 text-blue-700" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <div class="ml-3 text-sm font-medium text-blue-700">
+            {{message}}
+        </div>
+        <button type="button"
+            class="ml-auto -mx-1.5 -my-1.5 bg-blue-100 dark:bg-blue-200 text-blue-500 rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 hover:bg-blue-200 dark:hover:bg-blue-300 inline-flex h-8 w-8"
+            data-dismiss-target="#alert-border-1" aria-label="Close">
+            <span class="sr-only">Dismiss</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+    {% elif message.tags == "error" %}
+    <div id="alert-border-2" class="ease-out flex p-4 mb-4 bg-red-100 border-t-4 border-red-500 dark:bg-red-200"
+        role="alert">
+        <svg class="flex-shrink-0 w-5 h-5 text-red-700" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <div class="ml-3 text-sm font-medium text-red-700">
+            {{message}}
+        </div>
+        <button type="button"
+            class="ml-auto -mx-1.5 -my-1.5 bg-red-100 dark:bg-red-200 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 dark:hover:bg-red-300 inline-flex h-8 w-8"
+            data-dismiss-target="#alert-border-2" aria-label="Close">
+            <span class="sr-only">Dismiss</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+    {% elif message.tags == "success" %}
+    <div id="alert-border-3" class="ease-out flex p-4 mb-4 bg-green-100 border-t-4 border-green-500 dark:bg-green-200"
+        role="alert">
+        <svg class="flex-shrink-0 w-5 h-5 text-green-700" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <div class="ml-3 text-sm font-medium text-green-700">
+            {{message}}
+        </div>
+        <button type="button"
+            class="ml-auto -mx-1.5 -my-1.5 bg-green-100 dark:bg-green-200 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 dark:hover:bg-green-300 inline-flex h-8 w-8"
+            data-dismiss-target="#alert-border-3" aria-label="Close">
+            <span class="sr-only">Dismiss</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+    {% elif message.tags == "warning" %}
+    <div id="alert-border-4"
+        class="ease-out flex p-4 mb-4 bg-yellow-100 border-t-4 border-yellow-500 dark:bg-yellow-200" role="alert">
+        <svg class="flex-shrink-0 w-5 h-5 text-yellow-700" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <div class="ml-3 text-sm font-medium text-yellow-700">
+            {{message}}</div>
+        <button type="button"
+            class="ml-auto -mx-1.5 -my-1.5 bg-yellow-100 dark:bg-yellow-200 text-yellow-500 rounded-lg focus:ring-2 focus:ring-yellow-400 p-1.5 hover:bg-yellow-200 dark:hover:bg-yellow-300 inline-flex h-8 w-8"
+            data-dismiss-target="#alert-border-4" aria-label="Close">
+            <span class="sr-only">Dismiss</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+    {% else %}
+    <div id="alert-border-5" class="ease-out flex p-4 bg-gray-100 border-t-4 border-gray-500 dark:bg-gray-700"
+        role="alert">
+        <svg class="flex-shrink-0 w-5 h-5 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                clip-rule="evenodd"></path>
+        </svg>
+        <div class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">
+            {{message}} </div>
+        <button type="button"
+            class="ml-auto -mx-1.5 -my-1.5 bg-gray-100 text-gray-500 rounded-lg focus:ring-2 focus:ring-gray-400 p-1.5 hover:bg-gray-200 inline-flex h-8 w-8 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+            data-dismiss-target="#alert-border-5" aria-label="Close">
+            <span class="sr-only">Dismiss</span>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <!-- BODY -->
+    {% block body %}{% endblock body %}
+
+    <!-- FOOTER -->
+    {% block footer %}
+
+    <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-800">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="/" class="flex items-center mb-4 sm:mb-0">
+                <img src="{% static 'images/favicon.png' %}" class="mr-3 h-8" alt="Logo">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">TextAnalyzer</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="/about" class="mr-4 hover:underline md:mr-6 ">About</a>
+                </li>
+                <li>
+                    <a href="/blog" class="mr-4 hover:underline md:mr-6">Blog</a>
+                </li>
+                <li>
+                    <a href="/contact" class="mr-4 hover:underline md:mr-6">Contact</a>
+                </li>
+                <li>
+                    <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="/"
+                class="hover:underline">TextAnalzyer™</a>. All Rights Reserved.
+        </span>
+    </footer>
+
+    {% endblock footer %}
+    
+    <!-- WEBSITE RESPONSIVENESS MAINTAINER SCRIPT -->
+    <script src="{% static 'packages/flowbite/dist/flowbite.js' %}"></script>  
+    <script src="{% static 'script/prism.js' %}"></script>
+    <script src="{% static 'script/theme.js' %}"></script>
+
+    <!-- EXTERNAL SCRIPTS IF REQUIRED -->
+    {% block script %}{% endblock script %}
+
+    
+</body>
+
+</html>

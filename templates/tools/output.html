@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Results | TextAnalyzer{% endblock title %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'styles/prism.css' %}">
+{% endblock head %}
+
+{% block body %}
+<center>
+   <div class="container py-24">
+    <div class="p-6 max-w-screen-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+       <pre class="language-c"><code><div>Actions Performed:</div> {{purpose}}</code></pre>
+       {% if output != 'alphanumeric' %}
+       <pre class="language-c"><code><div>Results:</div>&nbsp;{{output}}</code></pre>
+       {% else %}
+       <pre class="language-c"><code><div>Alphabet Count:</div> {{count}}</code></pre>
+       <pre class="language-c"><code><div>Numeral Count:</div> {{num_count}}</code></pre>
+       {% endif %}
+       <a href="/tools/analyser" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Analyse More</a>
+
+    </div>
+   </div>
+
+</center>
+{% endblock body %}
+{% block script %}
+<script src="{% static 'script/prism.js' %}"></script>
+{% endblock script %}

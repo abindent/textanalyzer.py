@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters  %}
+{% load options_to_text %}
+{% block title %}Application Management Panel | TextAnalyzer{% endblock title %}
+
+{% block body %}
+<!-- Breadcrumb -->
+<nav class="flex py-3 px-5 text-gray-700 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700"
+    aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+            <a href="/"
+                class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                <svg class="mr-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                    </path>
+                </svg>
+                Home
+            </a>
+        </li>
+        <li>
+            <div class="flex items-center">
+                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <a href="/user/dashboard"
+                    class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Dashboard</a>
+            </div>
+        </li>
+        <li>
+            <div class="flex items-center">
+                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <a href="/user/application"
+                    class="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Application Management Panel</a>
+            </div>
+        </li>
+        <li aria-current="page">
+            <div class="flex items-center">
+                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">{{request.user}}</span>
+            </div>
+        </li>
+    </ol>
+</nav>
+ <!-- DASHBOARD -->
+
+ <div class="border-b border-gray-200 dark:border-gray-700 mt-3">
+    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+    <li class="mr-2">
+    <a href="/user/dashboard"  class="inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+    <svg class="mr-2 w-5 h-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>Dashboard
+    </a>
+    </li>
+    <li class="mr-2">
+    <a href="/user/profile" class="inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+    <svg class="mr-2 w-5 h-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path></svg>Profile
+    </a>
+    </li>
+    <li class="mr-2">
+    <a href="/user/info" class="inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group">
+    <svg class="mr-2 w-5 h-5 text-gray-400 group-hover:text-gray-500 dark:text-gray-500 dark:group-hover:text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path></svg>Settings
+    </a>
+    </li>
+    <li class="mr-2">
+    <a class="inline-flex p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500 group" aria-current="page"><i class="fas fa-scroll text-blue-600 dark:text-blue-500"></i>&nbsp;Applications</a>
+    </li>
+    <li class="mr-2">
+        <a href="/user/blogs" class="inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 group"><i class="fab fa-blogger"></i>&nbsp;Blogs</a>
+    </li>
+    </ul>
+    </div>
+
+<!-- MANAGEMENT PANEL -->
+<div class="container mt-3 space-y-4">
+{% for application in applications %}
+
+<div class="w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex justify-end px-4 pt-4">
+        <button id="controller-button-{{application.id}}" data-dropdown-toggle="controller-{{application.id}}" class="sm:inline-block text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-1.5" type="button">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div id="controller-{{application.id}}" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(614px, 3384px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top">
+            <ul class="py-1" aria-labelledby="dropdownButton">        
+             <li>
+                <button class="w-full text-left block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" data-modal-toggle="edit-application-{{application.id}}">Edit</button>
+             </li>   
+            <li>
+                <form action="/application/delete/{{application.id}}" method="POST" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                    {% csrf_token %}
+                    <button type="submit" >Delete</button>
+                </form>
+            </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex flex-col pb-10">
+        <h5 class="text-center font-bold text-3xl text-black dark:text-pink-800">Application for {{application.options | options_to_text}}</h5>
+        <h5 class="pl-5 mb-2 text-xl text-gray-900 dark:text-white"><b>Applied By: </b>{{application.name}}</h5>
+       
+        <h5 class="pl-5 mb-2 text-xl text-gray-900 dark:text-white"><b>Reason provided: </b>{{application.reason}}</h5>
+       
+        <h5 class="pl-5 mb-2 text-xl text-gray-900 dark:text-white"><b>Status: </b>{% if application.application_status is None %}<i class="text-gray-500">Not Known</i>{% elif application.application_status is False %}<i class="text-red-800">Rejected</i> {% else %}<i class="text-green-800">Accepted</i>{% endif %}</h5>
+        
+    </div>
+</div>
+<!-- EDIT MODAL -->
+<div id="edit-application-{{application.id}}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+    <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="edit-application-{{application.id}}">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+            </button>
+            <div class="py-6 px-6 lg:px-8">
+                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Edit your application.</h3>
+                <form class="space-y-6" action="/application/edit/{{application.id}}" method="POST">      
+                {% csrf_token %}  
+                <div>
+                        <label for="reason" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Reason Provided By You</label>
+                        <textarea rows="5" cols="5" name="reason" id="reason" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>{{application.reason}}</textarea>
+                    </div>
+                            
+                    </div>
+                    <div class="g-recaptcha" data-sitekey="6LcTDY8hAAAAAMsgJmPUvu2R-91zsDrquww1Eltk"></div>
+                    <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit Application</button>
+                </form>
+            </div>
+        </div>
+</div>
+
+{% endfor %}
+{% if applications|length is 0 %}
+ <div class="py-[3.5rem] md:py-[7rem]  text-center text-xl font-extralight text-black dark:text-white"><i class="fas fa-sad-cry text-yellow-500"></i>&nbsp;Cannot see any application? <a href="/application" class="text-blue-700 hover:underline">Create one here.</a></div>
+{% endif %}
+</div>
+{% endblock body %}    
+
+{% block script %}
+<script src="https://www.google.com/recaptcha/api.js"></script>
+{% endblock script %}
