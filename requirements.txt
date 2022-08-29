@@ -3,7 +3,7 @@ cloudinary==1.29.0
 pillow==9.2.0
 
 # DJANGO AND IT'S EXTENSIONS
-Django==4.0.4
+Django==4.0.7
 
 ## TEMPLATETAG EXTENSIONS
 humanfriendly==10.0
