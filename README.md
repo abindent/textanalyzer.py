@@ -34,7 +34,7 @@ This is my project where I have made a heroku app and deployed all the things wi
 
 - [![Dependencies](https://img.shields.io/static/v1?label=main-dependencies&message=django&color=green)](https://www.djangoproject.com/)
 
-- [![Dependencies](https://img.shields.io/static/v1?label=main-dependencies&message=django-heroku&color=green)](https://pypi.org/project/django-heroku/)
+- [![Dependencies](https://img.shields.io/static/v1?label=main-dependencies&message=whitenoise&color=green)](https://pypi.org/project/whitenoise/)
 
 - [![Dependencies](https://img.shields.io/static/v1?label=main-dependencies&message=gunicorn&color=green)](https://gunicorn.org/)
 
