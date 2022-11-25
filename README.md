@@ -2,7 +2,7 @@
   <img max-width="100%" src="https://i.imgur.com/orfhf4u.png?1" />
 </p>
 
-# <img src="https://textanalyzerpy.herokuapp.com/static/favicon/favicon.png" width="30px" />Textanalyzer Django Project
+# <img src="https://sinchan.pythonanywhere.com/static/images/favicon.png" width="30px" />Textanalyzer Django Project
 
 ## 🚀 About Me
 I'm a a beginner developer for Python and Javascript...
@@ -20,7 +20,7 @@ Javascript, HTML, CSS, Python...
 
 ## Desciption
 This is my project where I have made a heroku app and deployed all the things with the help of github. Here you can analyze your text, edit and style your text for free with customer care 
-            [Go and Visit Now](https://textanalyzerpy.herokuapp.com)
+            [Go and Visit Now](https://sinchan.pythonanywhere.com)
             
 ## Author
 
@@ -44,6 +44,6 @@ This is my project where I have made a heroku app and deployed all the things wi
 ## 🔗 Links
 
 - [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sinchan-maitra-22a303217/)
-- [![reddit](https://img.shields.io/reddit/subreddit-subscribers/Abindent?style=social)](https://reddit.com/r/Abindent)
-- [![discord](https://img.shields.io/discord/843750265554206740)](https://discord.com/invite/dFW3gG7gPy) 
+- [![reddit](https://img.shields.io/reddit/subreddit-subscribers/OpenSourceGame?style=social)](https://reddit.com/r/OpenSourceGame)
+- [![discord](https://img.shields.io/discord/843750265554206740)](https://discord.io/OpenSourceGames) 
 - [![youtube](https://img.shields.io/youtube/channel/subscribers/UCYCtnmYa44736S7GbfnbYoQ?style=social)](https://tiny.cc/discoHuge-YT)
