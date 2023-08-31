@@ -15,8 +15,8 @@ Javascript, HTML, CSS, Python...
 
 ## DJANGO
 
-# Django + BootStrap + Github + Heroku
-![Logo](https://emojis.slackmojis.com/emojis/images/1483054030/1541/django.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1470681426/745/plus.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1483053257/1538/bootstrap.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1470681426/745/plus.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1587484871/8712/github.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1470681426/745/plus.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1465929657/511/heroku.png)
+# Django + Flowbite + Github + PythonAnywhere
+![Logo](https://emojis.slackmojis.com/emojis/images/1483054030/1541/django.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1470681426/745/plus.png)  ![Logo](https://flowbite.s3.amazonaws.com/brand/logo-light/type/flowbite-logo.svg)  ![Logo](https://emojis.slackmojis.com/emojis/images/1470681426/745/plus.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1587484871/8712/github.png)  ![Logo](https://emojis.slackmojis.com/emojis/images/1470681426/745/plus.png)  ![Logo](https://www.pythonanywhere.com/static/anywhere/images/PA-logo.svg)
 
 ## Desciption
 This is my project where I have made a heroku app and deployed all the things with the help of github. Here you can analyze your text, edit and style your text for free with customer care 
