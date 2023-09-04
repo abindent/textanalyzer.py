@@ -1,3 +1,4 @@
+import os
 import re
 from textanalyzer.constants import ToolsConstant
 
@@ -157,7 +158,7 @@ class Tools():
 
         """
 
-        output = ''.join(self.raw_text.splitlines())
+        output = os.linesep.join([line for line in self.raw_text.splitlines() if line.strip() != '' ])
 
         await self.set_results(output=output, operation="Removed New Line Characters")
 
