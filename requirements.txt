@@ -1,6 +1,6 @@
 # MEIDA UPLOAD AND MANAGEMENT SERVICE PACKAGE
 cloudinary==1.29.0
-pillow==9.3.0
+pillow==10.0.1
 
 # DJANGO AND IT'S EXTENSIONS
 Django==4.1.10
